@@ -6,26 +6,80 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #000000;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fliegende Herzen Animation */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2em;
+    animation: float-across 8s linear infinite;
+    opacity: 0.7;
+}
+
+.heart:nth-child(1) { animation-delay: 0s; left: 5%; }
+.heart:nth-child(2) { animation-delay: 1s; left: 10%; font-size: 1.5em; }
+.heart:nth-child(3) { animation-delay: 2s; left: 15%; font-size: 2.5em; }
+.heart:nth-child(4) { animation-delay: 3s; left: 20%; font-size: 1.8em; }
+.heart:nth-child(5) { animation-delay: 4s; left: 25%; font-size: 2.2em; }
+.heart:nth-child(6) { animation-delay: 5s; left: 30%; font-size: 1.6em; }
+.heart:nth-child(7) { animation-delay: 6s; left: 35%; font-size: 2em; }
+.heart:nth-child(8) { animation-delay: 7s; left: 40%; font-size: 1.9em; }
+.heart:nth-child(9) { animation-delay: 0.5s; left: 45%; font-size: 2.1em; }
+.heart:nth-child(10) { animation-delay: 1.5s; left: 50%; font-size: 1.7em; }
+.heart:nth-child(11) { animation-delay: 2.5s; left: 55%; font-size: 2.3em; }
+.heart:nth-child(12) { animation-delay: 3.5s; left: 60%; font-size: 1.8em; }
+.heart:nth-child(13) { animation-delay: 4.5s; left: 65%; font-size: 2em; }
+.heart:nth-child(14) { animation-delay: 5.5s; left: 70%; font-size: 1.9em; }
+.heart:nth-child(15) { animation-delay: 6.5s; left: 75%; font-size: 2.2em; }
+.heart:nth-child(16) { animation-delay: 0.2s; left: 80%; font-size: 1.6em; }
+.heart:nth-child(17) { animation-delay: 1.2s; left: 85%; font-size: 2.1em; }
+.heart:nth-child(18) { animation-delay: 2.2s; left: 90%; font-size: 1.8em; }
+.heart:nth-child(19) { animation-delay: 3.2s; left: 95%; font-size: 2em; }
+
+@keyframes float-across {
+    from {
+        right: -50px;
+        top: -20px;
+    }
+    to {
+        right: 100vw;
+        top: 100vh;
+    }
 }
 
 .container {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
+    position: relative;
+    z-index: 10;
 }
 
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
     padding: 40px 30px;
     text-align: center;
     animation: slideIn 0.6s ease-out;
+    border: 2px solid #ff69b4;
 }
 
 @keyframes slideIn {
@@ -60,18 +114,19 @@ h1 {
     padding: 30px;
     border-radius: 15px;
     margin-bottom: 30px;
-    min-height: 150px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     box-shadow: 0 10px 30px rgba(253, 203, 110, 0.3);
+    border: 2px solid #ff69b4;
 }
 
 .love-message {
     font-size: 2.2em;
     font-weight: bold;
     color: #d63031;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     opacity: 1;
     transition: opacity 0.3s ease;
     letter-spacing: 1px;
@@ -83,10 +138,23 @@ h1 {
     font-weight: 500;
     opacity: 1;
     transition: opacity 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.pronunciation {
+    font-size: 1.1em;
+    color: #555555;
+    font-style: italic;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
 .refresh-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
     color: white;
     border: none;
     padding: 15px 40px;
@@ -95,13 +163,14 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 600;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
     margin-bottom: 20px;
 }
 
 .refresh-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.6);
+    background: linear-gradient(135deg, #ff1493 0%, #c71585 100%);
 }
 
 .refresh-btn:active {
@@ -129,12 +198,20 @@ h1 {
         font-size: 1.1em;
     }
 
+    .pronunciation {
+        font-size: 0.95em;
+    }
+
     .card {
         padding: 30px 20px;
     }
 
     .message-box {
         padding: 20px;
-        min-height: 120px;
+        min-height: 180px;
+    }
+
+    .heart {
+        font-size: 1.5em !important;
     }
 }
