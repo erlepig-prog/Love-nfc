@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Fliegende Herzen -->
+    <div class="floating-hearts"></div>
+
     <div class="container">
         <div class="card">
             <h1>💕 Ich liebe dich 💕</h1>
@@ -14,10 +17,11 @@
             <div class="message-box">
                 <p class="love-message" id="loveMessage"></p>
                 <p class="country-info" id="countryInfo"></p>
+                <p class="pronunciation" id="pronunciation"></p>
             </div>
             
             <button class="refresh-btn" onclick="displayRandomMessage()">
-                Neue Sprache laden
+                ❤️ Neue Sprache laden ❤️
             </button>
             
             <p class="info-text">Die Seite wird beim Laden automatisch eine zufällige Sprache anzeigen.</p>
@@ -25,9 +29,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // Automatisch beim Laden anzeigen
-        window.addEventListener('DOMContentLoaded', displayRandomMessage);
-    </script>
 </body>
 </html>
