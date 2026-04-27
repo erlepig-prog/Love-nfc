@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ich liebe dich - Mehrsprachig</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>💕 Ich liebe dich 💕</h1>
+            
+            <div class="message-box">
+                <p class="love-message" id="loveMessage"></p>
+                <p class="country-info" id="countryInfo"></p>
+            </div>
+            
+            <button class="refresh-btn" onclick="displayRandomMessage()">
+                Neue Sprache laden
+            </button>
+            
+            <p class="info-text">Die Seite wird beim Laden automatisch eine zufällige Sprache anzeigen.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Automatisch beim Laden anzeigen
+        window.addEventListener('DOMContentLoaded', displayRandomMessage);
+    </script>
+</body>
+</html>
